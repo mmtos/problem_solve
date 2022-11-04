@@ -1,0 +1,51 @@
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+	private static int N,M;
+	private static int[] sum;
+	
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());//레슨 개수
+		M = Integer.parseInt(st.nextToken());//블루레이 갯수
+		st = new StringTokenizer(br.readLine());
+		int[] lessonTimes = new int[N+1];
+		sum = new int[N+1];
+		
+		for(int i=1;i<=N;i++) {
+			lessonTimes[i]=Integer.parseInt(st.nextToken());
+			sum[i] = sum[i-1]+ lessonTimes[i];
+		}
+		int left = 1;
+		int right = 1000000000;
+		int ans = 0;
+		while(left<=right) {
+			int mid = (left+right)/2;
+			if(check(mid)) {
+				ans = mid;
+				right = mid-1;
+			}else {
+				left = mid+1;
+			}
+		}
+		System.out.println(ans);
+	}
+
+	static boolean check(int bluelaySize) {
+		int bluelayCount = M;
+		int index = 1; 
+		int nextIndex = 1;
+		while(bluelayCount != 0 && nextIndex != sum.length) {
+			while(nextIndex != sum.length && (bluelaySize >= sum[nextIndex]-sum[index-1])) nextIndex++;
+			index = nextIndex;
+			bluelayCount--;
+		}
+		if(nextIndex != sum.length) return false;
+		return true;
+	}
+}//class end
