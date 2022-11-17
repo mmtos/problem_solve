@@ -6,6 +6,11 @@
 
 using namespace std;
 
+void printVector(vector<pair<int,int>> v){
+	for(auto p : v){
+		cout << p.first << ":" << p.second << "\n";
+	}
+}
 void basicVectorSortTest(){
 	cout << "\n=====" << __func__ << "=====\n";
 	vector<pair<int,int>> v;
@@ -18,15 +23,32 @@ void basicVectorSortTest(){
 	
 	cout << "default sort" << "\n";
 	sort(v.begin(),v.end());
-	for(auto p : v){
-		cout << p.first << ":" << p.second << "\n";
-	}
+	printVector(v);
+	
+	//https://en.cppreference.com/w/cpp/algorithm/sort
+	cout << "greater sort" << "\n";
+	sort(v.begin(),v.end(), greater<pair<int,int>>());
+	printVector(v);
+	
+	cout << "less sort" << "\n";
+	sort(v.begin(),v.end(), less<pair<int,int>>());
+	printVector(v);
+	
+	cout << "custom sort" << "\n";
+	struct cmp{
+		bool operator()(pair<int,int> &a, pair<int,int> &b){
+			if(a.first != b.first) return a.first > b.first;
+			return a.second < b.second;
+		}
+	} cmp;
+	sort(v.begin(),v.end(), cmp);
+	printVector(v);
+	
 	
 	cout << "reverse sort" << "\n";
+	sort(v.begin(),v.end());
 	reverse(v.begin(),v.end());
-	for(auto p : v){
-		cout << p.first << ":" << p.second << "\n";
-	}
+	printVector(v);
 }
 
 //https://8156217.tistory.com/11
@@ -96,6 +118,8 @@ void customPriorityQueueSortTest(){
 		cout << p.first << ":" << p.second << "\n";
 	}
 }
+
+
 
 int main(){
 	ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
