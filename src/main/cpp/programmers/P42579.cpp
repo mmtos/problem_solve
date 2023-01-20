@@ -117,7 +117,7 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
 }
 
 int main(){
-	// #로직구현 
+	// #구현 
 	mapTest();
 	vector<string> genres = {"classic","pop", "classic","classic","pop"};
 	vector<int> plays = {500,600,150,800,2500};
