@@ -16,7 +16,7 @@ int n, m, from, to, wei;
 vector<pii> g[MAX_N];
 
 int main(){
-	// #다익스트라 
+	// #다익스트라 #경로복원
 	cin >> n >> m;
 	while(m--){
 		cin >> from >> to >> wei;

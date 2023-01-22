@@ -33,7 +33,9 @@ int main(){
 		for(int j=1;j<=n;j++){
 			for(int k=1;k<=n;k++){
 				if(i == j || i == k || j == k) continue;
-				d[j][k] = min(d[j][k], d[j][i]+d[i][k]);
+//				d[j][k] = min(d[j][k], d[j][i]+d[i][k]);
+				// 상수시간 최적화 
+				if(d[j][k] > d[j][i]+d[i][k]) d[j][k] = d[j][i]+d[i][k];
 			}
 		}
 //		cout << "\n====" << i <<  "====\n" ;
