@@ -25,7 +25,7 @@ int solution(int end_stuff_num, int is_contain, int remaining) {
 }
 
 int main(){
-	// # DP 틀린 풀이 
+	// #DP #틀림 
 	cin >> N >> K;
 	for(int i=0;i<N;i++){
 		cin >> w >> v;

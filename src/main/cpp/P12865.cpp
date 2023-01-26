@@ -57,7 +57,7 @@ int solution(int start_stuff_num, bool is_contain, int remaining) {
 }
 
 int main(){
-	// # DP 
+	// # DP #틀림 
 	// 1. 그리디가 아닌 완탐인 이유 : 가치가 큰것부터 넣거나, 무게가 작은것 부터 넣어도 반례가 있음.  
 	// 2. DP를 적용할 수 있는 이유  
 	// - 더 작은 무게에 대한 sub problem이 main problem의 구조와 동일하다. 
