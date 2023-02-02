@@ -1,4 +1,4 @@
-package study.java;
+package study.java.lang;
 
 import java.util.Arrays;
 import org.assertj.core.api.Assertions;

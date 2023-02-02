@@ -1,4 +1,4 @@
-package study.regex;
+package study.java.regex;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

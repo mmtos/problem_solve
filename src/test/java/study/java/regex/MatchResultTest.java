@@ -1,4 +1,4 @@
-package study.regex;
+package study.java.regex;
 
 public class MatchResultTest {
 }
