@@ -116,6 +116,7 @@ public class P10871 {
     }
 
     public static void main(String[] args) throws Exception{
+        // #입출력
         sol3();
     }
 }
