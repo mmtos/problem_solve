@@ -3,6 +3,7 @@ package study.java.util;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -61,5 +62,21 @@ public class ArraysTest {
         int[] arr = new int[100];
         Arrays.fill(arr,1);
         assertThat(arr).containsOnly(1);
+    }
+
+    @Test
+    @DisplayName("이차원 배열 초기화하기")
+    void t5(){
+        int[][] arr = new int[100][100];
+        for(int[] i : arr) Arrays.fill(i, 1);
+        assertThat(arr[0]).containsOnly(1);
+    }
+    @Test
+    @DisplayName("이차원 배열 초기화하기2")
+    void t6(){
+        int[][] arr = IntStream.generate(()->1).limit(100).mapToObj(
+                i-> IntStream.generate(()->1).limit(100).toArray()
+        ).toArray(size -> new int[size][size]);
+        assertThat(arr[0]).containsOnly(1);
     }
 }
